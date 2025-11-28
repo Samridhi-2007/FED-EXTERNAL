@@ -1,7 +1,11 @@
 ﻿# FED-EXTERNAL
-Can check deployed project
-step 1: click on link provided in about section (top right)
-step 2: visit that url
-step 3: click on FED -EXTERNAL
-step 4: Required output will be displayed there
+How to Check the Deployed Project
+
+Click on the link provided in the About section (top right corner of the repository).
+
+Open the URL in your browser.
+
+On the deployed site, click on FED-EXTERNAL.
+
+The required output will be displayed.
 
