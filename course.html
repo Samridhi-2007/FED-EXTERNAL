@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Course Drag Drop</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #eef3ff;
+        display: flex;
+        justify-content: center;
+        padding: 40px;
+      }
+      .container {
+        background: #fff;
+        padding: 20px;
+        width: 300px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #aaa;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        padding: 12px;
+        margin: 8px 0;
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        cursor: grab;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>My Courses</h2>
+
+      <ul id="courseList">
+        <li draggable="true">Introduction to Python</li>
+        <li draggable="true">Data Structures</li>
+        <li draggable="true">Web Development Basics</li>
+        <li draggable="true">Databases (SQL)</li>
+        <li draggable="true">Algorithms</li>
+      </ul>
+    </div>
+
+    <script>
+      const list = document.getElementById("courseList");
+      let draggingItem = null;
+
+      list.addEventListener("dragstart", (e) => {
+        draggingItem = e.target;
+      });
+
+      list.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        const afterElement = Array.from(list.children)
+          .filter((item) => item !== draggingItem)
+          .find((item) => e.clientY <= item.offsetTop + item.offsetHeight / 2);
+        afterElement
+          ? list.insertBefore(draggingItem, afterElement)
+          : list.appendChild(draggingItem);
+      });
+    </script>
+  </body>
+</html>
